@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>programs</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        function areaOfCircle(radius) {
+            let result = Math.PI * radius * radius;
+            return result;
+        }
+        areaOfCircle(10);
+
+        function areaOfTriangle(base, perpendicularheight) {
+            let result = 1 / 2 * base * perpendicularheight;
+            return result;
+        }
+
+        //areaOfTriangle(2, 3);
+
+
+        function perimeterOfRectangle(l, w) {
+            let result = 2 * l + w;
+            return result;
+        }
+        //perimeterOfRectangle(10, 2);
+
+
+        function printEvenNumbers(N) {
+            for (let i = 0; i < N; i++) {
+                if (i % 2 == 0) {
+                    console.log(i);
+                }
+            }
+        }
+        //printEvenNumbers(20);
+
+        function printPrimeNumbers(number) {
+            if (number < 2) {
+                return console.log(number + "its not a prime number");
+            }
+            if (number == 2) {
+                return console.log(number + "its a prime number");
+            }
+            else if (number > 2) {
+                for (let i = 2; i < number; i++) {
+                    if (number % i == 0) {
+                        return console.log(number + "its  not a prime number");
+                    }
+                }
+                return console.log(number + "its  a prime number");
+            }
+        }
+
+
+        //printPrimeNumbers(20);
+        function printPrimeNumbers1(number) {
+            let count = 0;
+            if (number < 2) {
+                console.log("its not a prime number");
+            }
+            else if (number >= 2) {
+                for (let i = 1; i <= number; i++) {
+                    for (let j = 2; j <= number; j++) {
+                        if (i * j == number) {
+                            count++;
+                        }
+
+                    }
+                }
+                if (count == 2) {
+                    console.log(number + "its  a prime number");
+                }
+                else {
+                    console.log(number + "its  not a prime number");
+                }
+
+            }
+        }
+        //printPrimeNumbers1(2);
+
+        //              Arrays                
+
+        function maxNumArray(n) {
+            let arr = [];
+            for (let i = 0; i < n - 1; i++) {
+                arr[i] = parseInt(prompt('Enter  number: '));
+            }
+            let num = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+
+                if (num <= arr[i]) {
+                    num = arr[i];
+                }
+            }
+            console.log(num);
+        }
+        //maxNumArray(6);
+
+        function minNumArray(n) {
+            let arr = [];
+            for (let i = 0; i < n - 1; i++) {
+                arr[i] = parseInt(prompt('Enter  number: '));
+            }
+            let num = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+
+                if (num >= arr[i]) {
+                    num = arr[i];
+                }
+            }
+            console.log(num);
+        }
+        //minNumArray(6);
+
+
+        function firstElementArray(n) {
+            let arr = [];
+            for (let i = 0; i < n - 1; i++) {
+                arr[i] = parseInt(prompt('Enter  number: '));
+            }
+            let num = arr[0];
+            console.log(num);
+        }
+        //firstElementArray(5);
+
+        function middleElementArray(n) {
+            let arr = [];
+            for (let i = 0; i < n - 1; i++) {
+                arr[i] = parseInt(prompt('Enter  number: '));
+            }
+            let last = arr.length - 1;
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = last; j < arr.length; j--) {
+                    if (arr[i] == arr[j]) {
+                        console.log(arr[i]);
+                    }
+                }
+            }
+        }
+        // middleElementArray(6);
+
+        function sortArray(n) {
+            let arr = [];
+            let arr1 = [];
+            for (let i = 0; i < n - 1; i++) {
+                arr[i] = parseInt(prompt('Enter  number: '));
+            }
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 1; j < arr.length; j++) {
+                    if (arr[i] > arr[j]) {
+                        let temp = arr[i];
+                        arr1[i] = arr[j];
+                        arr[j] = temp;
+                    }
+
+                }
+            }
+            console.log(arr);
+        }
+        //sortArray(5);
+
+
+        // patterns
+
+        function diamondPattern(n) {
+            let temp = "";
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j <= n - i; j++) {
+                    temp += " ";
+                }
+                for (let j = 0; j <= i; j++) {
+                    temp += "*";
+                    temp += " ";
+                }
+                temp += "\n";
+            }
+
+
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j <= i + 2; j++) {
+                    temp += " ";
+                }
+                for (let j = n - 1; j > i; j--) {
+                    temp += "*";
+                    temp += " ";
+                }
+                temp += "\n";
+            }
+            console.log(temp);
+
+        }
+        //diamondPattern(10);
+
+
+        function name() {
+            let rootEl = document.getElementById("root");
+
+            let linkEl = document.createElement("a");
+            linkEl.className = "waves-effect waves-light btnmodal-trigger";
+            linkEl.href = "#modal1";
+            linkEl.innerHTML = "Create";
+
+            let createDiv = document.createElement("div");
+            createDiv.id = "modal1";
+            createDiv.className = "modal ";
+
+            let createDiv1 = document.createElement("div");
+            createDiv1.className = "modal-content";
+
+
+            let createDiv2 = document.createElement("div");
+            createDiv2.className = "modal-footer";
+            createDiv.append(createDiv1, createDiv2);
+
+            let linkEl1 = document.createElement("a");
+            linkEl1.href = "#!";
+            linkEl1.className = "modal-close waves-effect waves-green btn-flat";
+            createDiv2.appendChild(linkEl1);
+            rootEl.append(linkEl, createDiv)
+        }
+        name();
+    </script>
+</body>
+
+</html>
